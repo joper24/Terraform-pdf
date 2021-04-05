@@ -1,0 +1,2312 @@
+test-2.html
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="yes" name="mobile-web-app-capable"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="Terraform by HashiCorp" name="description"/>
+  <link href="https://www.terraform.io/docs/language/index.html" rel="canonical"/>
+  <link href="/assets/images/favicons/apple-touch-icon-13180a24.png" rel="apple-touch-icon" sizes="180x180"/>
+  <link href="/assets/images/favicons/favicon-32x32-62171ffd.png" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="/assets/images/favicons/favicon-16x16-2821bcc8.png" rel="icon" sizes="16x16" type="image/png"/>
+  <link href="/android-manifest.json" rel="manifest"/>
+  <link color="#5C4EE5" href="/assets/images/favicons/safari-pinned-tab-bab846e1.svg" rel="mask-icon"/>
+  <meta content="/microsoft-tile.xml" name="msapplication-config"/>
+  <meta content="#ffffff" name="theme-color"/>
+  <meta content="summary" name="twitter:card"/>
+  <meta content="https://www.terraform.io/assets/images/og-image-8b3e4f7d.png" property="og:image"/>
+  <meta content="100" property="og:image:width"/>
+  <meta content="100" property="og:image:height"/>
+  <meta content="@HashiCorp" name="twitter:site"/>
+  <meta content="@HashiCorp" name="twitter:creator"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://www.terraform.io/docs/language/index.html" property="og:url"/>
+  <meta content="Overview - Configuration Language - Terraform by HashiCorp" property="og:title"/>
+  <meta content="Terraform by HashiCorp" property="og:site_name"/>
+  <meta content="Terraform by HashiCorp" property="og:description"/>
+  <title>
+   Overview - Configuration Language - Terraform by HashiCorp
+  </title>
+  <!-- Stylesheets -->
+  <link href="https://use.typekit.net/wxf7mfi.css" rel="stylesheet"/>
+  <link href="css-style.css" rel="stylesheet"/>
+  <!-- Site scripts -->
+  <!--[if lt IE 9]><script src="/assets/javascripts/ie-compat-c141a02d.js" defer="defer"></script><![endif]-->
+  <script async="" src="https://cdn.bizible.com/xdc.js?_biz_u=207ef29f64184b63f724671248569bf9&amp;_biz_h=-417244810&amp;cdn_o=a&amp;jsVer=4.20.11.13" type="text/javascript">
+  </script>
+  <script async="" src="//munchkin.marketo.net/159/munchkin.js" type="text/javascript">
+  </script>
+  <script async="" src="https://www.google-analytics.com/gtm/js?id=GTM-5R4TT2F&amp;cid=1701206452.1617407925" type="text/javascript">
+  </script>
+  <script async="" src="https://munchkin.marketo.net/munchkin.js" type="text/javascript">
+  </script>
+  <script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-N2S5JT5&amp;l=dataLayer" type="text/javascript">
+  </script>
+  <script async="" src="https://www.google-analytics.com/analytics.js" type="text/javascript">
+  </script>
+  <script async="" src="https://cdn.segment.com/analytics.js/v1/EnEETDWhfxp1rp09jVvJr66LdvwI6KVP/analytics.min.js" type="text/javascript">
+  </script>
+  <script defer="defer" src="/assets/javascripts/application-b91fee02.js">
+  </script>
+  <script defer="defer" src="/assets/javascripts/alert-banner-b7809937.js">
+  </script>
+  <script defer="defer" src="/assets/javascripts/terraform-overview/home-hero-cfd4d2f4.js">
+  </script>
+  <!-- Analytics scrpts -->
+  <!-- <script defer="">
+   !function(){var e=window.analytics=window.analytics||[];if(!e.initialize)if(e.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{e.invoked=!0,e.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"],e.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),e.push(a),e}};for(var t=0;t<e.methods.length;t++){var a=e.methods[t];e[a]=e.factory(a)}e.load=function(e){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+e+"/analytics.min.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(t,a)},e.SNIPPET_VERSION="4.0.0",e.load("EnEETDWhfxp1rp09jVvJr66LdvwI6KVP")}}();var om597a24292a958,om597a24292a958_poll=function(){var e=0;return function(t,a){clearInterval(e),e=setInterval(t,a)}}();!function(e,t,a){if(e.getElementById(a))om597a24292a958_poll(function(){if(window.om_loaded&&!om597a24292a958)return(om597a24292a958=new OptinMonsterApp).init({s:"35109.597a24292a958",staging:0,dev:0,beta:0})},25);else{var n=!1,o=e.createElement("script");o.id=a,o.src="//a.optnmstr.com/app/js/api.min.js",o.async=!0,o.onload=o.onreadystatechange=function(){if(!(n||this.readyState&&"loaded"!==this.readyState&&"complete"!==this.readyState))try{n=om_loaded=!0,(om597a24292a958=new OptinMonsterApp).init({s:"35109.597a24292a958",staging:0,dev:0,beta:0}),o.onload=o.onreadystatechange=null}catch(e){}},(document.getElementsByTagName("head")[0]||document.documentElement).appendChild(o)}}(document,0,"omapi-script");
+  </script> -->
+  <script async="" id="omapi-script" src="//a.optnmstr.com/app/js/api.min.js">
+  </script>
+  <style type="text/css">
+   @-webkit-keyframes omBounce{0%,20%,50%,80%,to{-webkit-transform:translateY(0);transform:translateY(0)}40%{-webkit-transform:translateY(-30px);transform:translateY(-30px)}60%{-webkit-transform:translateY(-15px);transform:translateY(-15px)}}@keyframes omBounce{0%,20%,50%,80%,to{-webkit-transform:translateY(0);transform:translateY(0)}40%{-webkit-transform:translateY(-30px);transform:translateY(-30px)}60%{-webkit-transform:translateY(-15px);transform:translateY(-15px)}}.om-animation-bounce{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-name:omBounce;animation-name:omBounce}@-webkit-keyframes omBounceIn{0%{opacity:0;-webkit-transform:scale(.3);transform:scale(.3)}50%{opacity:1;-webkit-transform:scale(1.05);transform:scale(1.05)}70%{-webkit-transform:scale(.9);transform:scale(.9)}to{opacity:1;-webkit-transform:scale(1);transform:scale(1)}}@keyframes omBounceIn{0%{opacity:0;-webkit-transform:scale(.3);transform:scale(.3)}50%{opacity:1;-webkit-transform:scale(1.05);transform:scale(1.05)}70%{-webkit-transform:scale(.9);transform:scale(.9)}to{opacity:1;-webkit-transform:scale(1);transform:scale(1)}}.om-animation-bounce-in{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:omBounceIn;animation-name:omBounceIn}@-webkit-keyframes omBounceInDown{0%{opacity:0;-webkit-transform:translateY(-2000px);transform:translateY(-2000px)}60%{opacity:1;-webkit-transform:translateY(30px);transform:translateY(30px)}80%{-webkit-transform:translateY(-10px);transform:translateY(-10px)}to{-webkit-transform:translateY(0);transform:translateY(0)}}@keyframes omBounceInDown{0%{opacity:0;-webkit-transform:translateY(-2000px);transform:translateY(-2000px)}60%{opacity:1;-webkit-transform:translateY(30px);transform:translateY(30px)}80%{-webkit-transform:translateY(-10px);transform:translateY(-10px)}to{-webkit-transform:translateY(0);transform:translateY(0)}}.om-animation-bounce-in-down{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:omBounceInDown;animation-name:omBounceInDown}@-webkit-keyframes omBounceInLeft{0%{opacity:0;-webkit-transform:translateX(-2000px);transform:translateX(-2000px)}60%{opacity:1;-webkit-transform:translateX(30px);transform:translateX(30px)}80%{-webkit-transform:translateX(-10px);transform:translateX(-10px)}to{-webkit-transform:translateX(0);transform:translateX(0)}}@keyframes omBounceInLeft{0%{opacity:0;-webkit-transform:translateX(-2000px);transform:translateX(-2000px)}60%{opacity:1;-webkit-transform:translateX(30px);transform:translateX(30px)}80%{-webkit-transform:translateX(-10px);transform:translateX(-10px)}to{-webkit-transform:translateX(0);transform:translateX(0)}}.om-animation-bounce-in-left{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:omBounceInLeft;animation-name:omBounceInLeft}@-webkit-keyframes omBounceInRight{0%{opacity:0;-webkit-transform:translateX(2000px);transform:translateX(2000px)}60%{opacity:1;-webkit-transform:translateX(-30px);transform:translateX(-30px)}80%{-webkit-transform:translateX(10px);transform:translateX(10px)}to{-webkit-transform:translateX(0);transform:translateX(0)}}@keyframes omBounceInRight{0%{opacity:0;-webkit-transform:translateX(2000px);transform:translateX(2000px)}60%{opacity:1;-webkit-transform:translateX(-30px);transform:translateX(-30px)}80%{-webkit-transform:translateX(10px);transform:translateX(10px)}to{-webkit-transform:translateX(0);transform:translateX(0)}}.om-animation-bounce-in-right{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:omBounceInRight;animation-name:omBounceInRight}@-webkit-keyframes omBounceInUp{0%{opacity:0;-webkit-transform:translateY(2000px);transform:translateY(2000px)}60%{opacity:1;-webkit-transform:translateY(-30px);transform:translateY(-30px)}80%{-webkit-transform:translateY(10px);transform:translateY(10px)}to{-webkit-transform:translateY(0);transform:translateY(0)}}@keyframes omBounceInUp{0%{opacity:0;-webkit-transform:translateY(2000px);transform:translateY(2000px)}60%{opacity:1;-webkit-transform:translateY(-30px);transform:translateY(-30px)}80%{-webkit-transform:translateY(10px);transform:translateY(10px)}to{-webkit-transform:translateY(0);transform:translateY(0)}}.om-animation-bounce-in-up{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:omBounceInUp;animation-name:omBounceInUp}@-webkit-keyframes omFlash{0%,50%,to{opacity:1}25%,75%{opacity:0}}@keyframes omFlash{0%,50%,to{opacity:1}25%,75%{opacity:0}}.om-animation-flash{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-name:omFlash;animation-name:omFlash}@-webkit-keyframes omFlip{0%{-webkit-transform:perspective(800px) translateZ(0) rotateY(0) scale(1);transform:perspective(800px) translateZ(0) rotateY(0) scale(1);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}40%{-webkit-transform:perspective(800px) translateZ(150px) rotateY(170deg) scale(1);transform:perspective(800px) translateZ(150px) rotateY(170deg) scale(1);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}50%{-webkit-transform:perspective(800px) translateZ(150px) rotateY(190deg) scale(1);transform:perspective(800px) translateZ(150px) rotateY(190deg) scale(1);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}80%{-webkit-transform:perspective(800px) translateZ(0) rotateY(1turn) scale(.95);transform:perspective(800px) translateZ(0) rotateY(1turn) scale(.95);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}to{-webkit-transform:perspective(800px) translateZ(0) rotateY(1turn) scale(1);transform:perspective(800px) translateZ(0) rotateY(1turn) scale(1);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}}@keyframes omFlip{0%{-webkit-transform:perspective(800px) translateZ(0) rotateY(0) scale(1);transform:perspective(800px) translateZ(0) rotateY(0) scale(1);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}40%{-webkit-transform:perspective(800px) translateZ(150px) rotateY(170deg) scale(1);transform:perspective(800px) translateZ(150px) rotateY(170deg) scale(1);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}50%{-webkit-transform:perspective(800px) translateZ(150px) rotateY(190deg) scale(1);transform:perspective(800px) translateZ(150px) rotateY(190deg) scale(1);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}80%{-webkit-transform:perspective(800px) translateZ(0) rotateY(1turn) scale(.95);transform:perspective(800px) translateZ(0) rotateY(1turn) scale(.95);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}to{-webkit-transform:perspective(800px) translateZ(0) rotateY(1turn) scale(1);transform:perspective(800px) translateZ(0) rotateY(1turn) scale(1);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}}.om-animation-flip{-webkit-animation-duration:1s;animation-duration:1s;-webkit-backface-visibility:visible;backface-visibility:visible;-webkit-animation-name:omFlip;animation-name:omFlip}@-webkit-keyframes omFlipInX{0%{-webkit-transform:perspective(800px) rotateX(90deg);transform:perspective(800px) rotateX(90deg);opacity:0}40%{-webkit-transform:perspective(800px) rotateX(-10deg);transform:perspective(800px) rotateX(-10deg)}70%{-webkit-transform:perspective(800px) rotateX(10deg);transform:perspective(800px) rotateX(10deg)}to{-webkit-transform:perspective(800px) rotateX(0deg);transform:perspective(800px) rotateX(0deg);opacity:1}}@keyframes omFlipInX{0%{-webkit-transform:perspective(800px) rotateX(90deg);transform:perspective(800px) rotateX(90deg);opacity:0}40%{-webkit-transform:perspective(800px) rotateX(-10deg);transform:perspective(800px) rotateX(-10deg)}70%{-webkit-transform:perspective(800px) rotateX(10deg);transform:perspective(800px) rotateX(10deg)}to{-webkit-transform:perspective(800px) rotateX(0deg);transform:perspective(800px) rotateX(0deg);opacity:1}}.om-animation-flip-down{-webkit-animation-duration:1s;animation-duration:1s;-webkit-backface-visibility:visible;backface-visibility:visible;-webkit-animation-name:omFlipInX;animation-name:omFlipInX}@-webkit-keyframes omFlipInY{0%{-webkit-transform:perspective(800px) rotateY(90deg);transform:perspective(800px) rotateY(90deg);opacity:0}40%{-webkit-transform:perspective(800px) rotateY(-10deg);transform:perspective(800px) rotateY(-10deg)}70%{-webkit-transform:perspective(800px) rotateY(10deg);transform:perspective(800px) rotateY(10deg)}to{-webkit-transform:perspective(800px) rotateY(0deg);transform:perspective(800px) rotateY(0deg);opacity:1}}@keyframes omFlipInY{0%{-webkit-transform:perspective(800px) rotateY(90deg);transform:perspective(800px) rotateY(90deg);opacity:0}40%{-webkit-transform:perspective(800px) rotateY(-10deg);transform:perspective(800px) rotateY(-10deg)}70%{-webkit-transform:perspective(800px) rotateY(10deg);transform:perspective(800px) rotateY(10deg)}to{-webkit-transform:perspective(800px) rotateY(0deg);transform:perspective(800px) rotateY(0deg);opacity:1}}.om-animation-flip-side{-webkit-animation-duration:1s;animation-duration:1s;-webkit-backface-visibility:visible;backface-visibility:visible;-webkit-animation-name:omFlipInY;animation-name:omFlipInY}@-webkit-keyframes omLightSpeedIn{0%{-webkit-transform:translateX(100%) skewX(-30deg);transform:translateX(100%) skewX(-30deg);opacity:0}60%{-webkit-transform:translateX(-20%) skewX(30deg);transform:translateX(-20%) skewX(30deg);opacity:1}80%{-webkit-transform:translateX(0) skewX(-15deg);transform:translateX(0) skewX(-15deg);opacity:1}to{-webkit-transform:translateX(0) skewX(0deg);transform:translateX(0) skewX(0deg);opacity:1}}@keyframes omLightSpeedIn{0%{-webkit-transform:translateX(100%) skewX(-30deg);transform:translateX(100%) skewX(-30deg);opacity:0}60%{-webkit-transform:translateX(-20%) skewX(30deg);transform:translateX(-20%) skewX(30deg);opacity:1}80%{-webkit-transform:translateX(0) skewX(-15deg);transform:translateX(0) skewX(-15deg);opacity:1}to{-webkit-transform:translateX(0) skewX(0deg);transform:translateX(0) skewX(0deg);opacity:1}}.om-animation-light-speed{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:omLightSpeedIn;animation-name:omLightSpeedIn;-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}@-webkit-keyframes omPulse{0%{-webkit-transform:scale(1);transform:scale(1)}50%{-webkit-transform:scale(1.1);transform:scale(1.1)}to{-webkit-transform:scale(1);transform:scale(1)}}@keyframes omPulse{0%{-webkit-transform:scale(1);transform:scale(1)}50%{-webkit-transform:scale(1.1);transform:scale(1.1)}to{-webkit-transform:scale(1);transform:scale(1)}}.om-animation-pulse{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-name:omPulse;animation-name:omPulse}@-webkit-keyframes omRollIn{0%{opacity:0;-webkit-transform:translateX(-100%) rotate(-120deg);transform:translateX(-100%) rotate(-120deg)}to{opacity:1;-webkit-transform:translateX(0) rotate(0deg);transform:translateX(0) rotate(0deg)}}@keyframes omRollIn{0%{opacity:0;-webkit-transform:translateX(-100%) rotate(-120deg);transform:translateX(-100%) rotate(-120deg)}to{opacity:1;-webkit-transform:translateX(0) rotate(0deg);transform:translateX(0) rotate(0deg)}}.om-animation-roll-in{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:omRollIn;animation-name:omRollIn}@-webkit-keyframes omRotateIn{0%{-webkit-transform-origin:center center;transform-origin:center center;-webkit-transform:rotate(-200deg);transform:rotate(-200deg);opacity:0}to{-webkit-transform-origin:center center;transform-origin:center center;-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}@keyframes omRotateIn{0%{-webkit-transform-origin:center center;transform-origin:center center;-webkit-transform:rotate(-200deg);transform:rotate(-200deg);opacity:0}to{-webkit-transform-origin:center center;transform-origin:center center;-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}.om-animation-rotate{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:omRotateIn;animation-name:omRotateIn}@-webkit-keyframes omRotateInDownLeft{0%{-webkit-transform-origin:left bottom;transform-origin:left bottom;-webkit-transform:rotate(-90deg);transform:rotate(-90deg);opacity:0}to{-webkit-transform-origin:left bottom;transform-origin:left bottom;-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}@keyframes omRotateInDownLeft{0%{-webkit-transform-origin:left bottom;transform-origin:left bottom;-webkit-transform:rotate(-90deg);transform:rotate(-90deg);opacity:0}to{-webkit-transform-origin:left bottom;transform-origin:left bottom;-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}.om-animation-rotate-down-left{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:omRotateInDownLeft;animation-name:omRotateInDownLeft}@-webkit-keyframes omRotateInDownRight{0%{-webkit-transform-origin:right bottom;transform-origin:right bottom;-webkit-transform:rotate(90deg);transform:rotate(90deg);opacity:0}to{-webkit-transform-origin:right bottom;transform-origin:right bottom;-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}@keyframes omRotateInDownRight{0%{-webkit-transform-origin:right bottom;transform-origin:right bottom;-webkit-transform:rotate(90deg);transform:rotate(90deg);opacity:0}to{-webkit-transform-origin:right bottom;transform-origin:right bottom;-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}.om-animation-rotate-down-right{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:omRotateInDownRight;animation-name:omRotateInDownRight}@-webkit-keyframes omRotateInUpLeft{0%{-webkit-transform-origin:left bottom;transform-origin:left bottom;-webkit-transform:rotate(90deg);transform:rotate(90deg);opacity:0}to{-webkit-transform-origin:left bottom;transform-origin:left bottom;-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}@keyframes omRotateInUpLeft{0%{-webkit-transform-origin:left bottom;transform-origin:left bottom;-webkit-transform:rotate(90deg);transform:rotate(90deg);opacity:0}to{-webkit-transform-origin:left bottom;transform-origin:left bottom;-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}.om-animation-rotate-up-left{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:omRotateInUpLeft;animation-name:omRotateInUpLeft}@-webkit-keyframes omRotateInUpRight{0%{-webkit-transform-origin:right bottom;transform-origin:right bottom;-webkit-transform:rotate(-90deg);transform:rotate(-90deg);opacity:0}to{-webkit-transform-origin:right bottom;transform-origin:right bottom;-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}@keyframes omRotateInUpRight{0%{-webkit-transform-origin:right bottom;transform-origin:right bottom;-webkit-transform:rotate(-90deg);transform:rotate(-90deg);opacity:0}to{-webkit-transform-origin:right bottom;transform-origin:right bottom;-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}.om-animation-rotate-up-right{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:omRotateInUpRight;animation-name:omRotateInUpRight}@-webkit-keyframes omRubberBand{0%{-webkit-transform:scale(1);transform:scale(1)}30%{-webkit-transform:scaleX(1.25) scaleY(.75);transform:scaleX(1.25) scaleY(.75)}40%{-webkit-transform:scaleX(.75) scaleY(1.25);transform:scaleX(.75) scaleY(1.25)}60%{-webkit-transform:scaleX(1.15) scaleY(.85);transform:scaleX(1.15) scaleY(.85)}to{-webkit-transform:scale(1);transform:scale(1)}}@keyframes omRubberBand{0%{-webkit-transform:scale(1);transform:scale(1)}30%{-webkit-transform:scaleX(1.25) scaleY(.75);transform:scaleX(1.25) scaleY(.75)}40%{-webkit-transform:scaleX(.75) scaleY(1.25);transform:scaleX(.75) scaleY(1.25)}60%{-webkit-transform:scaleX(1.15) scaleY(.85);transform:scaleX(1.15) scaleY(.85)}to{-webkit-transform:scale(1);transform:scale(1)}}.om-animation-rubber-band{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-name:omRubberBand;animation-name:omRubberBand}@-webkit-keyframes omShake{0%,to{-webkit-transform:translateX(0);transform:translateX(0)}10%,30%,50%,70%,90%{-webkit-transform:translateX(-10px);transform:translateX(-10px)}20%,40%,60%,80%{-webkit-transform:translateX(10px);transform:translateX(10px)}}@keyframes omShake{0%,to{-webkit-transform:translateX(0);transform:translateX(0)}10%,30%,50%,70%,90%{-webkit-transform:translateX(-10px);transform:translateX(-10px)}20%,40%,60%,80%{-webkit-transform:translateX(10px);transform:translateX(10px)}}.om-animation-shake{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-name:omShake;animation-name:omShake}@-webkit-keyframes omSlideInDown{0%{opacity:0;-webkit-transform:translateY(-2000px);transform:translateY(-2000px)}to{-webkit-transform:translateY(0);transform:translateY(0)}}@keyframes omSlideInDown{0%{opacity:0;-webkit-transform:translateY(-2000px);transform:translateY(-2000px)}to{-webkit-transform:translateY(0);transform:translateY(0)}}.om-animation-slide-in-down{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:omSlideInDown;animation-name:omSlideInDown}@-webkit-keyframes omSlideInLeft{0%{opacity:0;-webkit-transform:translateX(-2000px);transform:translateX(-2000px)}to{-webkit-transform:translateX(0);transform:translateX(0)}}@keyframes omSlideInLeft{0%{opacity:0;-webkit-transform:translateX(-2000px);transform:translateX(-2000px)}to{-webkit-transform:translateX(0);transform:translateX(0)}}.om-animation-slide-in-left{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:omSlideInLeft;animation-name:omSlideInLeft}@-webkit-keyframes omSlideInRight{0%{opacity:0;-webkit-transform:translateX(2000px);transform:translateX(2000px)}to{-webkit-transform:translateX(0);transform:translateX(0)}}@keyframes omSlideInRight{0%{opacity:0;-webkit-transform:translateX(2000px);transform:translateX(2000px)}to{-webkit-transform:translateX(0);transform:translateX(0)}}.om-animation-slide-in-right{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:omSlideInRight;animation-name:omSlideInRight}@-webkit-keyframes omSwing{20%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}40%{-webkit-transform:rotate(-10deg);transform:rotate(-10deg)}60%{-webkit-transform:rotate(5deg);transform:rotate(5deg)}80%{-webkit-transform:rotate(-5deg);transform:rotate(-5deg)}to{-webkit-transform:rotate(0deg);transform:rotate(0deg)}}@keyframes omSwing{20%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}40%{-webkit-transform:rotate(-10deg);transform:rotate(-10deg)}60%{-webkit-transform:rotate(5deg);transform:rotate(5deg)}80%{-webkit-transform:rotate(-5deg);transform:rotate(-5deg)}to{-webkit-transform:rotate(0deg);transform:rotate(0deg)}}.om-animation-swing{-webkit-animation-duration:1s;animation-duration:1s;-webkit-transform-origin:top center;transform-origin:top center;-webkit-animation-name:omSwing;animation-name:omSwing}@-webkit-keyframes omTada{0%{-webkit-transform:scale(1);transform:scale(1)}10%,20%{-webkit-transform:scale(.9) rotate(-3deg);transform:scale(.9) rotate(-3deg)}30%,50%,70%,90%{-webkit-transform:scale(1.1) rotate(3deg);transform:scale(1.1) rotate(3deg)}40%,60%,80%{-webkit-transform:scale(1.1) rotate(-3deg);transform:scale(1.1) rotate(-3deg)}to{-webkit-transform:scale(1) rotate(0);transform:scale(1) rotate(0)}}@keyframes omTada{0%{-webkit-transform:scale(1);transform:scale(1)}10%,20%{-webkit-transform:scale(.9) rotate(-3deg);transform:scale(.9) rotate(-3deg)}30%,50%,70%,90%{-webkit-transform:scale(1.1) rotate(3deg);transform:scale(1.1) rotate(3deg)}40%,60%,80%{-webkit-transform:scale(1.1) rotate(-3deg);transform:scale(1.1) rotate(-3deg)}to{-webkit-transform:scale(1) rotate(0);transform:scale(1) rotate(0)}}.om-animation-tada{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:omTada;animation-name:omTada}@-webkit-keyframes omWobble{0%{-webkit-transform:translateX(0);transform:translateX(0)}15%{-webkit-transform:translateX(-25%) rotate(-5deg);transform:translateX(-25%) rotate(-5deg)}30%{-webkit-transform:translateX(20%) rotate(3deg);transform:translateX(20%) rotate(3deg)}45%{-webkit-transform:translateX(-15%) rotate(-3deg);transform:translateX(-15%) rotate(-3deg)}60%{-webkit-transform:translateX(10%) rotate(2deg);transform:translateX(10%) rotate(2deg)}75%{-webkit-transform:translateX(-5%) rotate(-1deg);transform:translateX(-5%) rotate(-1deg)}to{-webkit-transform:translateX(0);transform:translateX(0)}}@keyframes omWobble{0%{-webkit-transform:translateX(0);transform:translateX(0)}15%{-webkit-transform:translateX(-25%) rotate(-5deg);transform:translateX(-25%) rotate(-5deg)}30%{-webkit-transform:translateX(20%) rotate(3deg);transform:translateX(20%) rotate(3deg)}45%{-webkit-transform:translateX(-15%) rotate(-3deg);transform:translateX(-15%) rotate(-3deg)}60%{-webkit-transform:translateX(10%) rotate(2deg);transform:translateX(10%) rotate(2deg)}75%{-webkit-transform:translateX(-5%) rotate(-1deg);transform:translateX(-5%) rotate(-1deg)}to{-webkit-transform:translateX(0);transform:translateX(0)}}.om-animation-wobble{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:omWobble;animation-name:omWobble}.om-content-lock{color:transparent!important;text-shadow:rgba(0,0,0,.5) 0 0 10px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;pointer-events:none;filter:url("data:image/svg+xml;utf9,<svg%20version='1.1'%20xmlns='http://www.w3.org/2000/svg'><filter%20id='blur'><feGaussianBlur%20stdDeviation='10'%20/></filter></svg>#blur");-webkit-filter:blur(10px);-ms-filter:blur(10px);-o-filter:blur(10px);filter:blur(10px)}html.om-mobile-position,html.om-mobile-position body{position:fixed!important}html.om-ios-form,html.om-ios-form body{-webkit-transform:translateZ(0)!important;transform:translateZ(0)!important;-webkit-overflow-scrolling:touch!important;height:100%!important;overflow:auto!important}html.om-position-popup body{overflow:hidden!important}html.om-position-floating-top{transition:padding-top .5s ease!important}html.om-position-floating-bottom{transition:padding-bottom .5s ease!important}html.om-reset-dimensions{height:100%!important;width:100%!important}.om-verification-confirmation{font-family:Lato,Arial,Helvetica,sans-serif;position:fixed;border-radius:10px;bottom:20px;left:20px;padding:10px 20px;opacity:0;transition:opacity .3s ease-in;background:#85bf31;color:#fff;font-size:18px;font-weight:700;z-index:9999}
+  </style>
+  <script async="" src="https://a.omappapi.com/app/js/moment.js/2.24.0/moment.min.js">
+  </script>
+  <script async="" src="https://a.omappapi.com/app/js/webfont/1.5.18/webfont.js">
+  </script>
+  <script async="" src="https://www.google-analytics.com/analytics.js">
+  </script>
+  <script async="" src="https://a.omappapi.com/app/js/moment-timezone/0.5.23/moment-timezone-with-data-2012-2022.min.js">
+  </script>
+ </head>
+ <body class="layout-language page-overview-configuration-language" id="overview-configuration-language">
+  <div class="g-alert-banner has-large-tag">
+   <div class="g-container">
+    <a href="https://www.hashicorp.com/webinars/provision-infrastructure-using-cloud-development-kit-for-terraform/">
+     <div class="tag g-type-label">
+      <span>
+       Live Webinar
+      </span>
+     </div>
+     <div class="text g-type-body-small-strong">
+      <span>
+       Write an infrastructure application in TypeScript and Python using CDK for Terraform
+      </span>
+     </div>
+     <div class="link-text g-type-body-small-strong">
+      <span>
+       Register Now
+      </span>
+     </div>
+    </a>
+   </div>
+   <span class="close">
+    <svg fill="none" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+     <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM15 9l-6 6M9 9l6 6" stroke="#000">
+     </path>
+    </svg>
+   </span>
+  </div>
+  <header class="hashiStackMenuRoot hashiStackMenu">
+   <nav class="nav g-container">
+    <a class="logoLink" href="https://www.hashicorp.com">
+     <div data-testid="root">
+      <svg fill="none" height="30" viewbox="0 0 125 30" width="125" xmlns="http://www.w3.org/2000/svg">
+       <path d="M75.027 14.777v8.103h2.907v-8.412c0-2.073-.69-3.432-2.621-3.432-1.24 0-2.955.453-4.242 1.12V6.127l-2.908.405V22.88h2.908v-8.055c1.049-.548 2.312-.977 3.026-.977.668 0 .93.31.93.93zM42.57 16.183v6.697h3.002V7.009H42.57v6.53h-5.886v-6.53h-3.002v15.87h3.002v-6.696h5.886z" fill="#000">
+       </path>
+       <path clip-rule="evenodd" d="M54.175 22.88h2.383v-7.65c0-2.907-1.072-4.194-4.718-4.194-1.287 0-2.884.215-3.98.548l.358 2.216c1.024-.214 2.168-.357 3.216-.357 1.86 0 2.217.453 2.217 1.74v1.215h-2.789c-2.359 0-3.383.905-3.383 3.265 0 2.002.905 3.455 3.026 3.455a6.345 6.345 0 003.456-1.024l.214.786zm-2.669-4.385h2.145v1.716c-.548.31-1.335.596-2.193.596-.905 0-1.167-.358-1.167-1.168 0-.882.262-1.144 1.215-1.144z" fill="#000" fill-rule="evenodd">
+       </path>
+       <path d="M62.182 23.118c-1.24 0-2.93-.286-4.003-.667l.405-2.216c.977.286 2.264.5 3.455.5 1.287 0 1.478-.286 1.478-1.168 0-.714-.143-1.072-2.026-1.525-2.836-.69-3.17-1.406-3.17-3.646 0-2.335 1.025-3.36 4.338-3.36 1.072 0 2.478.143 3.479.405l-.286 2.312c-.882-.167-2.288-.334-3.193-.334-1.263 0-1.478.286-1.478 1 0 .93.072 1.002 1.644 1.407 3.241.858 3.551 1.287 3.551 3.67 0 2.24-.69 3.622-4.194 3.622zM80.08 22.88h2.906V11.274H80.08V22.88zM80.08 9.63h2.906V6.27H80.08v3.36zM90.66 6.77c-3.956 0-5.648 1.692-5.648 4.6v7.149c0 2.907 1.692 4.599 5.648 4.599 1.477 0 3.002-.19 4.313-.524l-.334-2.598c-1.287.239-2.788.405-3.884.405-2.073 0-2.74-.715-2.74-2.406v-6.101c0-1.692.666-2.407 2.74-2.407 1.096 0 2.597.167 3.884.405l.334-2.597a17.95 17.95 0 00-4.313-.525z" fill="#000">
+       </path>
+       <path clip-rule="evenodd" d="M100.931 23.118c-3.98 0-5.052-2.192-5.052-4.575V15.61c0-2.382 1.072-4.575 5.052-4.575 3.979 0 5.052 2.193 5.052 4.575v2.931c0 2.384-1.073 4.576-5.052 4.576zm0-9.603c-1.55 0-2.145.69-2.145 2.001v3.122c0 1.31.596 2.002 2.145 2.002s2.144-.691 2.144-2.002v-3.122c0-1.31-.595-2.001-2.144-2.001z" fill="#000" fill-rule="evenodd">
+       </path>
+       <path d="M110.63 15.397c1.048-.667 1.954-1.191 3.074-1.692l-.286-2.669c-1.025.286-2.407 1.096-3.05 1.525l-.191-1.287h-2.454V22.88h2.907v-7.483z" fill="#000">
+       </path>
+       <path clip-rule="evenodd" d="M124.727 19.02c0 2.573-1.144 4.098-3.836 4.098-1.025 0-2.193-.143-3.098-.333v4.79l-2.907.405V11.274h2.311l.286.978c1.025-.74 2.216-1.216 3.67-1.216 2.335 0 3.574 1.382 3.574 4.028v3.955zm-6.934 1.31c.762.167 1.739.31 2.573.31 1.049 0 1.454-.5 1.454-1.55v-4.098c0-.953-.357-1.477-1.43-1.477-.953 0-1.978.476-2.597 1.048v5.767z" fill="#000" fill-rule="evenodd">
+       </path>
+       <path d="M0 7.196L11.455.587v4.965L4.304 9.68v15.873L0 23.069V7.196z" fill="#000">
+       </path>
+       <path d="M16.029.587V13.23h-4.574V8.511l-4.303 2.485v16.196l4.303 2.49V17.078h4.574v4.687l4.303-2.485V3.072L16.03.587z" fill="#000">
+       </path>
+       <path d="M27.484 23.079l-11.456 6.608v-4.964l7.152-4.13V4.722l4.304 2.485v15.873z" fill="#000">
+       </path>
+      </svg>
+     </div>
+    </a>
+    <menu class="menu">
+     <li class="navItem">
+      <button class="buttonReset link" type="button">
+       Browse Products
+       <span class="visuallyHidden">
+        Open this menu
+       </span>
+       <div data-testid="root">
+        <svg fill="none" height="7" viewbox="0 0 10 7" width="10" xmlns="http://www.w3.org/2000/svg">
+         <path d="M8.053 2l-3 3.006-3-3.006" stroke="#000" stroke-linecap="square" stroke-width="1.25">
+         </path>
+        </svg>
+       </div>
+      </button>
+      <section class="browsePanel">
+       <menu class="stackMenuSection">
+        <li class="stackGroup">
+         <h5 class="stackGroupHeading">
+          Infrastructure
+         </h5>
+         <ul class="stackGroupLinkList">
+          <li class="stackItem">
+           <a class="itemLink" href="https://www.terraform.io">
+            <img alt="terraform by HashiCorp" class="productIcon" src="/assets/images/product-icons/terraform-icon-color-7fbc9ecc.svg"/>
+            <span class="productName itemName">
+             terraform
+            </span>
+           </a>
+          </li>
+          <li class="stackItem">
+           <a class="itemLink" href="https://www.packer.io">
+            <img alt="packer by HashiCorp" class="productIcon" src="/assets/images/product-icons/packer-icon-color-63788766.svg"/>
+            <span class="productName itemName">
+             packer
+            </span>
+           </a>
+          </li>
+          <li class="stackItem">
+           <a class="itemLink" href="https://www.vagrantup.com">
+            <img alt="vagrant by HashiCorp" class="productIcon" src="/assets/images/product-icons/vagrant-icon-color-2760bd10.svg"/>
+            <span class="productName itemName">
+             vagrant
+            </span>
+           </a>
+          </li>
+         </ul>
+        </li>
+        <li class="stackGroup">
+         <h5 class="stackGroupHeading">
+          Networking
+         </h5>
+         <ul class="stackGroupLinkList">
+          <li class="stackItem">
+           <a class="itemLink" href="https://www.consul.io">
+            <img alt="consul by HashiCorp" class="productIcon" src="/assets/images/product-icons/consul-icon-color-5f3c8d79.svg"/>
+            <span class="productName itemName">
+             consul
+            </span>
+           </a>
+          </li>
+         </ul>
+        </li>
+       </menu>
+       <menu class="stackMenuSection">
+        <li class="stackGroup">
+         <h5 class="stackGroupHeading">
+          Security
+         </h5>
+         <ul class="stackGroupLinkList">
+          <li class="stackItem">
+           <a class="itemLink" href="https://www.vaultproject.io">
+            <img alt="vault by HashiCorp" class="productIcon" src="/assets/images/product-icons/vault-icon-color-9631af69.svg"/>
+            <span class="productName itemName">
+             vault
+            </span>
+           </a>
+          </li>
+          <li class="stackItem">
+           <a class="itemLink" href="https://boundaryproject.io/">
+            <img alt="Boundary by HashiCorp" class="productIcon" src="/assets/images/product-icons/boundary-icon-color-432dea5d.svg"/>
+            <span class="productName itemName">
+             Boundary
+            </span>
+            <span class="badge badgeTypeNew">
+             New
+            </span>
+           </a>
+          </li>
+         </ul>
+        </li>
+        <li class="stackGroup">
+         <h5 class="stackGroupHeading">
+          Applications
+         </h5>
+         <ul class="stackGroupLinkList">
+          <li class="stackItem">
+           <a class="itemLink" href="https://www.nomadproject.io">
+            <img alt="nomad by HashiCorp" class="productIcon" src="/assets/images/product-icons/nomad-icon-color-6d04ce13.svg"/>
+            <span class="productName itemName">
+             nomad
+            </span>
+           </a>
+          </li>
+          <li class="stackItem">
+           <a class="itemLink" href="https://waypointproject.io/">
+            <img alt="Waypoint by HashiCorp" class="productIcon" src="/assets/images/product-icons/waypoint-icon-color-7e7a35f5.svg"/>
+            <span class="productName itemName">
+             Waypoint
+            </span>
+            <span class="badge badgeTypeNew">
+             New
+            </span>
+           </a>
+          </li>
+         </ul>
+        </li>
+       </menu>
+       <menu class="stackMenuSectionPlusDivider stackMenuSection">
+        <li class="stackGroup">
+         <h5 class="stackGroupHeading">
+          HashiCorp Cloud Platform
+         </h5>
+         <ul class="stackGroupLinkList">
+          <li class="stackItem">
+           <a class="itemLink" href="https://cloud.hashicorp.com/">
+            <img alt="consul by HashiCorp" class="productIcon" src="/assets/images/product-icons/consul-icon-color-5f3c8d79.svg"/>
+            <span class="productName itemName">
+             consul
+            </span>
+            <span class="badge">
+             Generally Available
+            </span>
+           </a>
+          </li>
+          <li class="stackItem">
+           <a class="itemLink" href="https://app.terraform.io">
+            <img alt="terraform by HashiCorp" class="productIcon" src="/assets/images/product-icons/terraform-icon-color-7fbc9ecc.svg"/>
+            <span class="productName itemName">
+             terraform
+            </span>
+           </a>
+          </li>
+          <li class="stackItem">
+           <a class="itemLink" href="https://cloud.hashicorp.com/">
+            <img alt="vault by HashiCorp" class="productIcon" src="/assets/images/product-icons/vault-icon-color-9631af69.svg"/>
+            <span class="productName itemName">
+             vault
+            </span>
+            <span class="badge">
+             Public Beta
+            </span>
+           </a>
+          </li>
+         </ul>
+        </li>
+        <li class="stackGroup">
+         <h5 class="stackGroupHeading">
+          Partner Services
+         </h5>
+         <ul class="stackGroupLinkList">
+          <li class="stackItem">
+           <a class="itemLink" href="https://www.hashicorp.com/products/consul/service-on-azure">
+            <span class="itemName">
+             HashiCorp Consul Service (HCS) on Azure
+            </span>
+           </a>
+          </li>
+         </ul>
+        </li>
+       </menu>
+      </section>
+     </li>
+     <li class="navItem">
+      <a class="link" href="https://www.hashicorp.com/about">
+       About HashiCorp
+      </a>
+     </li>
+    </menu>
+   </nav>
+  </header>
+  <div class="navigation navbar-static-top hidden-print" id="header">
+   <div class="container">
+    <div class="row">
+     <div class="col-xs-12">
+      <div class="navbar-header">
+       <div class="navbar-brand">
+        <a href="/">
+         <svg class="logo" height="50" viewbox="0 0 251 61" xmlns="http://www.w3.org/2000/svg">
+          <path class="text" d="M81.78 19.54h-8.89v-5.31H96.7v5.31h-8.9v26.53h-6" fill="#000" fill-rule="nonzero">
+          </path>
+          <path class="text" d="M102.19 41.77c2.415-.012 4.814-.383 7.12-1.1l.91 4.4c-2.745.99-5.642 1.49-8.56 1.48-7.31 0-9.85-3.39-9.85-9V31.4c0-4.92 2.2-9.08 9.66-9.08s9.13 4.35 9.13 9.37v5h-13v1.2c.05 2.78 1.05 3.88 4.59 3.88zM97.65 32h7.41v-1.18c0-2.2-.67-3.73-3.54-3.73s-3.87 1.53-3.87 3.73V32zm28.54-4.33c-2.148.97-4.217 2.102-6.19 3.39v15h-5.83V22.79h4.92l.38 2.58c1.897-1.284 3.955-2.313 6.12-3.06l.6 5.36zm14.24 0c-2.14.97-4.204 2.103-6.17 3.39v15h-5.83V22.79h4.92l.38 2.58c1.897-1.284 3.955-2.313 6.12-3.06l.58 5.36zm19.51 18.4h-4.78l-.43-1.58c-2.062 1.342-4.47 2.058-6.93 2.06-4.25 0-6.07-2.92-6.07-6.93 0-4.73 2.06-6.55 6.79-6.55h5.59v-2.44c0-2.58-.72-3.49-4.45-3.49-2.17.024-4.33.266-6.45.72l-.72-4.45c2.606-.72 5.296-1.09 8-1.1 7.31 0 9.47 2.58 9.47 8.41l-.02 15.35zm-5.83-8.8h-4.3c-1.91 0-2.44.53-2.44 2.29s.53 2.34 2.34 2.34c1.544-.024 3.058-.436 4.4-1.2v-3.43zm23.75-19.79c-1.1-.237-2.224-.364-3.35-.38-2.29 0-2.63 1-2.63 2.77v2.92h5.93l-.33 4.64h-5.59v18.64h-5.83V27.43h-3.73v-4.64h3.73v-3.25c0-4.83 2.25-7.22 7.41-7.22 1.69-.006 3.372.22 5 .67l-.61 4.49zm11.38 29.07c-8 0-10.13-4.4-10.13-9.18v-5.88c0-4.78 2.15-9.18 10.13-9.18s10.13 4.4 10.13 9.18v5.88c.01 4.78-2.15 9.18-10.13 9.18zm0-19.27c-3.11 0-4.3 1.39-4.3 4v6.26c0 2.63 1.2 4 4.3 4 3.1 0 4.3-1.39 4.3-4V31.3c0-2.63-1.19-4.02-4.3-4.02zm25.14.39c-2.14.97-4.204 2.103-6.17 3.39v15h-5.83V22.79h4.92l.38 2.58c1.897-1.284 3.954-2.313 6.12-3.06l.58 5.36zm16.02 18.4V29.82c0-1.24-.53-1.86-1.86-1.86-2.137.254-4.2.934-6.07 2v16.11h-5.83V22.79h4.45l.57 2c2.906-1.47 6.088-2.315 9.34-2.48 1.843-.174 3.6.82 4.4 2.49 2.91-1.49 6.104-2.34 9.37-2.49 3.87 0 5.26 2.72 5.26 6.88v16.88h-5.83V29.82c0-1.24-.53-1.86-1.86-1.86-2.14.236-4.208.917-6.07 2v16.11h-5.87z" fill="#000" fill-rule="nonzero">
+          </path>
+          <path class="rect-dark" d="M36.4 39.13l16.4-9.46V10.72L36.4 20.2" fill="#4040B2">
+          </path>
+          <path class="rect-light" d="M18.2 10.72l16.4 9.48v18.93l-16.4-9.47" fill="#5C4EE5">
+          </path>
+          <path class="rect-light" d="M0 19.09l16.4 9.47V9.62L0 .15m18.2 50.53l16.4 9.47V41.21l-16.4-9.47" fill="#5C4EE5">
+          </path>
+         </svg>
+        </a>
+       </div>
+       <button class="navbar-toggle" type="button">
+        <span class="sr-only">
+         Toggle navigation
+        </span>
+        <span class="icon-bar">
+        </span>
+        <span class="icon-bar">
+        </span>
+        <span class="icon-bar">
+        </span>
+       </button>
+      </div>
+      <div class="buttons hidden-xs">
+       <nav class="navigation-links" role="navigation">
+        <ul class="main-links nav navbar-nav navbar-right">
+         <li>
+          <a data-track="overview" href="/">
+           Overview
+          </a>
+         </li>
+         <li>
+          <span>
+           <a data-track="editions">
+            Editions
+           </a>
+           <svg height="5" width="9" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8.811 1.067a.612.612 0 0 0 0-.884.655.655 0 0 0-.908 0L4.5 3.491 1.097.183a.655.655 0 0 0-.909 0 .615.615 0 0 0 0 .884l3.857 3.75a.655.655 0 0 0 .91 0l3.856-3.75z" fill-rule="evenodd">
+            </path>
+           </svg>
+          </span>
+          <ul class="dropdown">
+           <li>
+            <a data-track="editions-cli" href="/">
+             Terraform CLI
+            </a>
+           </li>
+           <li>
+            <a data-track="editions-cloud" href="/cloud">
+             Terraform Cloud
+            </a>
+           </li>
+           <li>
+            <a data-track="editions-enterprise" href="https://www.hashicorp.com/products/terraform">
+             Terraform Enterprise
+            </a>
+           </li>
+          </ul>
+         </li>
+         <li class="hidden-sm">
+          <a data-track="registry" href="https://registry.terraform.io">
+           Registry
+          </a>
+         </li>
+         <li class="hidden-sm">
+          <a data-track="learn" href="https://learn.hashicorp.com/terraform/?utm_source=terraform_io">
+           Tutorials
+          </a>
+         </li>
+         <li>
+          <span>
+           <a data-track="docs" href="/docs/index.html">
+            Docs
+           </a>
+           <svg height="5" width="9" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8.811 1.067a.612.612 0 0 0 0-.884.655.655 0 0 0-.908 0L4.5 3.491 1.097.183a.655.655 0 0 0-.909 0 .615.615 0 0 0 0 .884l3.857 3.75a.655.655 0 0 0 .91 0l3.856-3.75z" fill-rule="evenodd">
+            </path>
+           </svg>
+          </span>
+          <ul class="dropdown">
+           <li>
+            <a data-track="docs-home" href="/docs/index.html">
+             About the Docs
+            </a>
+           </li>
+           <li>
+            <a data-track="docs-intro" href="/intro/index.html">
+             Intro to Terraform
+            </a>
+           </li>
+           <li>
+            <a data-track="docs-language" href="/docs/language/index.html">
+             Terraform Language
+            </a>
+           </li>
+           <li>
+            <a data-track="docs-cli" href="/docs/cli/index.html">
+             Terraform CLI
+            </a>
+           </li>
+           <li>
+            <a data-track="docs-cloud" href="/docs/cloud/index.html">
+             Terraform Cloud
+            </a>
+           </li>
+           <li>
+            <a data-track="docs-ent" href="/docs/enterprise/index.html">
+             Terraform Enterprise
+            </a>
+           </li>
+           <li>
+            <a data-track="docs-providers" href="/docs/providers/index.html">
+             Providers
+            </a>
+           </li>
+           <li>
+            <a data-track="docs-glossary" href="/docs/glossary.html">
+             Glossary
+            </a>
+           </li>
+           <li>
+            <a data-track="docs-registry" href="/docs/registry/index.html">
+             Publishing Providers &amp; Modules
+            </a>
+           </li>
+           <li>
+            <a data-track="docs-extending" href="/docs/extend/index.html">
+             Extending Terraform
+            </a>
+           </li>
+          </ul>
+         </li>
+         <li class="visible-sm">
+          <span>
+           <a href="/">
+            Info
+           </a>
+           <svg height="5" width="9" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8.811 1.067a.612.612 0 0 0 0-.884.655.655 0 0 0-.908 0L4.5 3.491 1.097.183a.655.655 0 0 0-.909 0 .615.615 0 0 0 0 .884l3.857 3.75a.655.655 0 0 0 .91 0l3.856-3.75z" fill-rule="evenodd">
+            </path>
+           </svg>
+          </span>
+          <ul class="dropdown">
+           <li>
+            <a data-track="registry" href="https://registry.terraform.io/">
+             Registry
+            </a>
+           </li>
+           <li>
+            <a data-track="learn" href="https://learn.hashicorp.com/terraform/?utm_source=terraform_io">
+             Tutorials
+            </a>
+           </li>
+           <li>
+            <a data-track="community" href="/community">
+             Community
+            </a>
+           </li>
+          </ul>
+         </li>
+         <li class="hidden-sm">
+          <a data-track="community" href="/community">
+           Community
+          </a>
+         </li>
+         <li>
+          <a data-track="github" href="https://github.com/hashicorp/terraform">
+           GitHub
+          </a>
+         </li>
+         <li id="terraform-overview-sign-in-link">
+          <div>
+           <a data-track="download-cli" href="/downloads.html">
+            Download CLI
+           </a>
+          </div>
+         </li>
+         <li class="hidden-md hidden-sm" id="terraform-overview-sign-up-link">
+          <div>
+           <a data-track="sign-up" href="/cloud">
+            Terraform Cloud
+           </a>
+          </div>
+         </li>
+        </ul>
+       </nav>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="sidebar-overlay">
+  </div>
+  <aside class="sidebar" role="navigation">
+   <div class="sidebar-header">
+    <svg class="logo" height="42" viewbox="0 0 251 61" xmlns="http://www.w3.org/2000/svg">
+     <path class="text" d="M81.78 19.54h-8.89v-5.31H96.7v5.31h-8.9v26.53h-6" fill="#000" fill-rule="nonzero">
+     </path>
+     <path class="text" d="M102.19 41.77c2.415-.012 4.814-.383 7.12-1.1l.91 4.4c-2.745.99-5.642 1.49-8.56 1.48-7.31 0-9.85-3.39-9.85-9V31.4c0-4.92 2.2-9.08 9.66-9.08s9.13 4.35 9.13 9.37v5h-13v1.2c.05 2.78 1.05 3.88 4.59 3.88zM97.65 32h7.41v-1.18c0-2.2-.67-3.73-3.54-3.73s-3.87 1.53-3.87 3.73V32zm28.54-4.33c-2.148.97-4.217 2.102-6.19 3.39v15h-5.83V22.79h4.92l.38 2.58c1.897-1.284 3.955-2.313 6.12-3.06l.6 5.36zm14.24 0c-2.14.97-4.204 2.103-6.17 3.39v15h-5.83V22.79h4.92l.38 2.58c1.897-1.284 3.955-2.313 6.12-3.06l.58 5.36zm19.51 18.4h-4.78l-.43-1.58c-2.062 1.342-4.47 2.058-6.93 2.06-4.25 0-6.07-2.92-6.07-6.93 0-4.73 2.06-6.55 6.79-6.55h5.59v-2.44c0-2.58-.72-3.49-4.45-3.49-2.17.024-4.33.266-6.45.72l-.72-4.45c2.606-.72 5.296-1.09 8-1.1 7.31 0 9.47 2.58 9.47 8.41l-.02 15.35zm-5.83-8.8h-4.3c-1.91 0-2.44.53-2.44 2.29s.53 2.34 2.34 2.34c1.544-.024 3.058-.436 4.4-1.2v-3.43zm23.75-19.79c-1.1-.237-2.224-.364-3.35-.38-2.29 0-2.63 1-2.63 2.77v2.92h5.93l-.33 4.64h-5.59v18.64h-5.83V27.43h-3.73v-4.64h3.73v-3.25c0-4.83 2.25-7.22 7.41-7.22 1.69-.006 3.372.22 5 .67l-.61 4.49zm11.38 29.07c-8 0-10.13-4.4-10.13-9.18v-5.88c0-4.78 2.15-9.18 10.13-9.18s10.13 4.4 10.13 9.18v5.88c.01 4.78-2.15 9.18-10.13 9.18zm0-19.27c-3.11 0-4.3 1.39-4.3 4v6.26c0 2.63 1.2 4 4.3 4 3.1 0 4.3-1.39 4.3-4V31.3c0-2.63-1.19-4.02-4.3-4.02zm25.14.39c-2.14.97-4.204 2.103-6.17 3.39v15h-5.83V22.79h4.92l.38 2.58c1.897-1.284 3.954-2.313 6.12-3.06l.58 5.36zm16.02 18.4V29.82c0-1.24-.53-1.86-1.86-1.86-2.137.254-4.2.934-6.07 2v16.11h-5.83V22.79h4.45l.57 2c2.906-1.47 6.088-2.315 9.34-2.48 1.843-.174 3.6.82 4.4 2.49 2.91-1.49 6.104-2.34 9.37-2.49 3.87 0 5.26 2.72 5.26 6.88v16.88h-5.83V29.82c0-1.24-.53-1.86-1.86-1.86-2.14.236-4.208.917-6.07 2v16.11h-5.87z" fill="#000" fill-rule="nonzero">
+     </path>
+     <path class="rect-dark" d="M36.4 39.13l16.4-9.46V10.72L36.4 20.2" fill="#4040B2">
+     </path>
+     <path class="rect-light" d="M18.2 10.72l16.4 9.48v18.93l-16.4-9.47" fill="#5C4EE5">
+     </path>
+     <path class="rect-light" d="M0 19.09l16.4 9.47V9.62L0 .15m18.2 50.53l16.4 9.47V41.21l-16.4-9.47" fill="#5C4EE5">
+     </path>
+    </svg>
+   </div>
+   <ul class="nav sidebar-nav">
+    <li>
+     <a data-track="overview" href="/">
+      Overview
+     </a>
+    </li>
+    <li>
+     <a data-track="registry" href="https://registry.terraform.io">
+      Registry
+     </a>
+    </li>
+    <li>
+     <a data-track="learn" href="https://learn.hashicorp.com/terraform/">
+      Tutorials
+     </a>
+    </li>
+    <li>
+     <a data-track="community" href="/community">
+      Community
+     </a>
+    </li>
+    <li>
+     <a data-track="github" href="https://github.com/hashicorp/terraform">
+      GitHub
+     </a>
+    </li>
+    <li>
+     <a data-track="download-cli" href="/downloads.html">
+      Download CLI
+     </a>
+    </li>
+   </ul>
+   <div class="divider">
+   </div>
+   <ul class="nav sidebar-nav">
+    <li>
+     <p>
+      Editions
+     </p>
+    </li>
+    <li>
+     <a data-track="editions-cli" href="/">
+      Terraform CLI
+     </a>
+    </li>
+    <li>
+     <a data-track="editions-cloud" href="/cloud">
+      Terraform Cloud
+     </a>
+    </li>
+    <li>
+     <a data-track="editions-enterprise" href="https://www.hashicorp.com/products/terraform">
+      Terraform Enterprise
+     </a>
+    </li>
+   </ul>
+   <div class="divider">
+   </div>
+   <ul class="nav sidebar-nav">
+    <li>
+     <a data-track="docs" href="/docs/index.html">
+      Docs:
+     </a>
+    </li>
+    <li>
+     <a data-track="docs-home" href="/docs/index.html">
+      About the Docs
+     </a>
+    </li>
+    <li>
+     <a data-track="docs-intro" href="/intro/index.html">
+      Intro to Terraform
+     </a>
+    </li>
+    <li>
+     <a data-track="docs-language" href="/docs/language/index.html">
+      Terraform Language
+     </a>
+    </li>
+    <li>
+     <a data-track="docs-cli" href="/docs/cli/index.html">
+      Terraform CLI
+     </a>
+    </li>
+    <li>
+     <a data-track="docs-cloud" href="/docs/cloud/index.html">
+      Terraform Cloud
+     </a>
+    </li>
+    <li>
+     <a data-track="docs-ent" href="/docs/enterprise/index.html">
+      Terraform Enterprise
+     </a>
+    </li>
+    <li>
+     <a data-track="docs-providers" href="/docs/providers/index.html">
+      Providers
+     </a>
+    </li>
+    <li>
+     <a data-track="docs-glossary" href="/docs/glossary.html">
+      Glossary
+     </a>
+    </li>
+    <li>
+     <a data-track="docs-registry" href="/docs/registry/index.html">
+      Publishing Providers &amp; Modules
+     </a>
+    </li>
+    <li>
+     <a data-track="docs-extending" href="/docs/extend/index.html">
+      Extending Terraform
+     </a>
+    </li>
+   </ul>
+  </aside>
+  <div class="container">
+   <div class="row">
+                    <div class="col-sm-4 col-md-3 col-xs-12 hidden-print g-type-body-small" id="docs-sidebar" role="complementary">
+                    <a class="sr-only sr-only-focusable" href="#inner" id="screenreader-skip">
+                      Skip to content
+                    </a>
+                    <a class="visible-xs" href="#inner" id="mobile-skip">
+                      (Skip to content ⤵︎)
+                    </a>
+                    <div id="controls-placeholder" style="display: none;">
+                    </div>
+                    <div id="sidebar-header-grid">
+                      <h4>
+                      <a class="current-page" href="/docs/language/index.html">
+                        Terraform Language
+                      </a>
+                      </h4>
+                      <div id="sidebar-controls">
+                      <div id="sidebar-filter" style="display: none;">
+                        <span class="glyphicon glyphicon-search">
+                        </span>
+                        <label class="sr-only sr-only-focusable" for="sidebar-filter-field">
+                        Filter page titles in sidebar navigation
+                        </label>
+                        <input class="form-control" id="sidebar-filter-field" name="sidebar-filter-field" placeholder="Filter page titles" role="search" type="search"/>
+                        <button class="glyphicon glyphicon-remove-circle" id="filter-close" title="Reset filter">
+                        <span class="sr-only sr-only-focusable">
+                          Reset sidebar filter
+                        </span>
+                        </button>
+                      </div>
+                      <div id="sidebar-buttons">
+                        <button id="toggle-button">
+                        Expand all
+                        </button>
+                        |
+                        <button id="filter-button" title="Shortcut: type the / key">
+                        Filter
+                        </button>
+                      </div>
+                      </div>
+                    </div>
+                    <ul class="nav docs-sidenav">
+                      <li class="current active">
+                      <a class="current-page" href="/docs/language/index.html">
+                        Overview
+                      </a>
+                      </li>
+                      <li class="has-subnav">
+                      <a href="#">
+                        Files and Directories
+                      </a>
+                      <ul class="nav nav-hidden">
+                        <li>
+                        <a href="/docs/language/files/index.html">
+                          Overview
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/files/override.html">
+                          Override Files
+                        </a>
+                        </li>
+                      </ul>
+                      </li>
+                      <li class="has-subnav">
+                      <a href="#">
+                        Syntax
+                      </a>
+                      <ul class="nav nav-hidden">
+                        <li>
+                        <a href="/docs/language/syntax/index.html">
+                          Overview
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/syntax/configuration.html">
+                          Configuration Syntax
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/syntax/json.html">
+                          JSON Configuration Syntax
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/syntax/style.html">
+                          Style Conventions
+                        </a>
+                        </li>
+                      </ul>
+                      </li>
+                      <li class="has-subnav">
+                      <a href="#">
+                        Resources
+                      </a>
+                      <ul class="nav nav-hidden">
+                        <li>
+                        <a href="/docs/language/resources/index.html">
+                          Overview
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/resources/syntax.html">
+                          Resource Blocks
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/resources/behavior.html">
+                          Resource Behavior
+                        </a>
+                        </li>
+                        <li class="has-subnav active">
+                        <a href="#">
+                          Meta-Arguments
+                        </a>
+                        <ul class="nav nav-auto-expand nav-hidden">
+                          <li>
+                          <a href="/docs/language/meta-arguments/depends_on.html">
+                            <code>
+                            depends_on
+                            </code>
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/meta-arguments/count.html">
+                            <code>
+                            count
+                            </code>
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/meta-arguments/for_each.html">
+                            <code>
+                            for_each
+                            </code>
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/meta-arguments/resource-provider.html">
+                            <code>
+                            provider
+                            </code>
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/meta-arguments/lifecycle.html">
+                            <code>
+                            lifecycle
+                            </code>
+                          </a>
+                          </li>
+                        </ul>
+                        </li>
+                        <li class="has-subnav">
+                        <a href="#">
+                          Provisioners
+                        </a>
+                        <ul class="nav nav-hidden">
+                          <li>
+                          <a href="/docs/language/resources/provisioners/index.html">
+                            Overview
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/resources/provisioners/syntax.html">
+                            Declaring Provisioners
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/resources/provisioners/connection.html">
+                            Provisioner Connections
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/resources/provisioners/null_resource.html">
+                            Provisioners Without a Resource
+                          </a>
+                          </li>
+                          <li class="has-subnav active">
+                          <a href="#">
+                            Generic Provisioners
+                          </a>
+                          <ul class="nav nav-auto-expand nav-hidden">
+                            <li>
+                            <a href="/docs/language/resources/provisioners/file.html">
+                              file
+                            </a>
+                            </li>
+                            <li>
+                            <a href="/docs/language/resources/provisioners/local-exec.html">
+                              local-exec
+                            </a>
+                            </li>
+                            <li>
+                            <a href="/docs/language/resources/provisioners/remote-exec.html">
+                              remote-exec
+                            </a>
+                            </li>
+                          </ul>
+                          </li>
+                          <li class="has-subnav active">
+                          <a href="#">
+                            Vendor Provisioners
+                          </a>
+                          <ul class="nav nav-auto-expand nav-hidden">
+                            <li>
+                            <a href="/docs/language/resources/provisioners/chef.html">
+                              chef
+                            </a>
+                            </li>
+                            <li>
+                            <a href="/docs/language/resources/provisioners/habitat.html">
+                              habitat
+                            </a>
+                            </li>
+                            <li>
+                            <a href="/docs/language/resources/provisioners/puppet.html">
+                              puppet
+                            </a>
+                            </li>
+                            <li>
+                            <a href="/docs/language/resources/provisioners/salt-masterless.html">
+                              salt-masterless
+                            </a>
+                            </li>
+                          </ul>
+                          </li>
+                        </ul>
+                        </li>
+                      </ul>
+                      </li>
+                      <!-- resources -->
+                      <li>
+                      <a href="/docs/language/data-sources/index.html">
+                        Data Sources
+                      </a>
+                      </li>
+                      <li class="has-subnav">
+                      <a href="#">
+                        Providers
+                      </a>
+                      <ul class="nav nav-hidden">
+                        <li>
+                        <a href="/docs/language/providers/index.html">
+                          Overview
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/providers/requirements.html">
+                          Provider Requirements
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/providers/configuration.html">
+                          Provider Configuration
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/dependency-lock.html">
+                          Dependency Lock File
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/providers/index.html">
+                          Provider Documentation
+                        </a>
+                        <!-- To be deleted when remaining 8 providers are gone, doesn't need new URL -->
+                        </li>
+                      </ul>
+                      </li>
+                      <!-- providers -->
+                      <li class="has-subnav">
+                      <a href="#">
+                        Variables and Outputs
+                      </a>
+                      <ul class="nav nav-hidden">
+                        <li>
+                        <a href="/docs/language/values/index.html">
+                          Overview
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/values/variables.html">
+                          Input Variables
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/values/outputs.html">
+                          Output Values
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/values/locals.html">
+                          Local Values
+                        </a>
+                        </li>
+                      </ul>
+                      </li>
+                      <li class="has-subnav">
+                      <a href="#">
+                        Modules
+                      </a>
+                      <ul class="nav nav-hidden">
+                        <li>
+                        <a href="/docs/language/modules/index.html">
+                          Overview
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/modules/syntax.html">
+                          Module Blocks
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/modules/sources.html">
+                          Module Sources
+                        </a>
+                        </li>
+                        <li class="has-subnav active">
+                        <a href="#">
+                          Meta-Arguments
+                        </a>
+                        <ul class="nav nav-auto-expand nav-hidden">
+                          <li>
+                          <a href="/docs/language/meta-arguments/module-providers.html">
+                            <code>
+                            providers
+                            </code>
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/meta-arguments/depends_on.html">
+                            <code>
+                            depends_on
+                            </code>
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/meta-arguments/count.html">
+                            <code>
+                            count
+                            </code>
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/meta-arguments/for_each.html">
+                            <code>
+                            for_each
+                            </code>
+                          </a>
+                          </li>
+                        </ul>
+                        </li>
+                        <li class="has-subnav">
+                        <a href="#">
+                          Module Development
+                        </a>
+                        <ul class="nav nav-hidden">
+                          <li>
+                          <a href="/docs/language/modules/develop/index.html">
+                            Overview
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/modules/develop/structure.html">
+                            Standard Module Structure
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/modules/develop/providers.html">
+                            Providers Within Modules
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/modules/develop/composition.html">
+                            Best Practices: Module Composition
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/modules/develop/publish.html">
+                            Publishing Modules
+                          </a>
+                          </li>
+                        </ul>
+                        </li>
+                      </ul>
+                      </li>
+                      <!-- modules -->
+                      <li class="has-subnav">
+                      <a href="#">
+                        Expressions
+                      </a>
+                      <ul class="nav nav-hidden">
+                        <li>
+                        <a href="/docs/language/expressions/index.html">
+                          Overview
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/expressions/types.html">
+                          Types and Values
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/expressions/strings.html">
+                          Strings and Templates
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/expressions/references.html">
+                          References to Values
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/expressions/operators.html">
+                          Operators
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/expressions/function-calls.html">
+                          Function Calls
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/expressions/conditionals.html">
+                          Conditional Expressions
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/expressions/for.html">
+                          For Expressions
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/expressions/splat.html">
+                          Splat Expressions
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/expressions/dynamic-blocks.html">
+                          Dynamic Blocks
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/expressions/type-constraints.html">
+                          Type Constraints
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/expressions/version-constraints.html">
+                          Version Constraints
+                        </a>
+                        </li>
+                      </ul>
+                      </li>
+                      <li class="has-subnav">
+                      <a href="#">
+                        Functions
+                      </a>
+                      <ul class="nav nav-hidden">
+                        <li>
+                        <a href="/docs/language/functions/index.html">
+                          Overview
+                        </a>
+                        </li>
+                        <li class="has-subnav">
+                        <a href="#">
+                          Numeric Functions
+                        </a>
+                        <ul class="nav nav-hidden">
+                          <li>
+                          <a href="/docs/language/functions/abs.html">
+                            abs
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/ceil.html">
+                            ceil
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/floor.html">
+                            floor
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/log.html">
+                            log
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/max.html">
+                            max
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/min.html">
+                            min
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/parseint.html">
+                            parseint
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/pow.html">
+                            pow
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/signum.html">
+                            signum
+                          </a>
+                          </li>
+                        </ul>
+                        </li>
+                        <li class="has-subnav">
+                        <a href="#">
+                          String Functions
+                        </a>
+                        <ul class="nav nav-hidden">
+                          <li>
+                          <a href="/docs/language/functions/chomp.html">
+                            chomp
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/format.html">
+                            format
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/formatlist.html">
+                            formatlist
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/indent.html">
+                            indent
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/join.html">
+                            join
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/lower.html">
+                            lower
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/regex.html">
+                            regex
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/regexall.html">
+                            regexall
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/replace.html">
+                            replace
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/split.html">
+                            split
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/strrev.html">
+                            strrev
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/substr.html">
+                            substr
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/title.html">
+                            title
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/trim.html">
+                            trim
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/trimprefix.html">
+                            trimprefix
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/trimsuffix.html">
+                            trimsuffix
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/trimspace.html">
+                            trimspace
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/upper.html">
+                            upper
+                          </a>
+                          </li>
+                        </ul>
+                        </li>
+                        <li class="has-subnav">
+                        <a href="#">
+                          Collection Functions
+                        </a>
+                        <ul class="nav nav-hidden">
+                          <li>
+                          <a href="/docs/language/functions/alltrue.html">
+                            alltrue
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/anytrue.html">
+                            anytrue
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/chunklist.html">
+                            chunklist
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/coalesce.html">
+                            coalesce
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/coalescelist.html">
+                            coalescelist
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/compact.html">
+                            compact
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/concat.html">
+                            concat
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/contains.html">
+                            contains
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/distinct.html">
+                            distinct
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/element.html">
+                            element
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/flatten.html">
+                            flatten
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/index_function.html">
+                            index
+                          </a>
+                          <!-- odd filename out, due to web conventions -->
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/keys.html">
+                            keys
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/length.html">
+                            length
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/list.html">
+                            list
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/lookup.html">
+                            lookup
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/map.html">
+                            map
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/matchkeys.html">
+                            matchkeys
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/merge.html">
+                            merge
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/range.html">
+                            range
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/reverse.html">
+                            reverse
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/setintersection.html">
+                            setintersection
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/setproduct.html">
+                            setproduct
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/setsubtract.html">
+                            setsubtract
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/setunion.html">
+                            setunion
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/slice.html">
+                            slice
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/sort.html">
+                            sort
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/sum.html">
+                            sum
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/transpose.html">
+                            transpose
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/values.html">
+                            values
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/zipmap.html">
+                            zipmap
+                          </a>
+                          </li>
+                        </ul>
+                        </li>
+                        <li class="has-subnav">
+                        <a href="#">
+                          Encoding Functions
+                        </a>
+                        <ul class="nav nav-hidden">
+                          <li>
+                          <a href="/docs/language/functions/base64decode.html">
+                            base64decode
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/base64encode.html">
+                            base64encode
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/base64gzip.html">
+                            base64gzip
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/csvdecode.html">
+                            csvdecode
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/jsondecode.html">
+                            jsondecode
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/jsonencode.html">
+                            jsonencode
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/textdecodebase64.html">
+                            textdecodebase64
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/textencodebase64.html">
+                            textencodebase64
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/urlencode.html">
+                            urlencode
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/yamldecode.html">
+                            yamldecode
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/yamlencode.html">
+                            yamlencode
+                          </a>
+                          </li>
+                        </ul>
+                        </li>
+                        <li class="has-subnav">
+                        <a href="#">
+                          Filesystem Functions
+                        </a>
+                        <ul class="nav nav-hidden">
+                          <li>
+                          <a href="/docs/language/functions/abspath.html">
+                            abspath
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/dirname.html">
+                            dirname
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/pathexpand.html">
+                            pathexpand
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/basename.html">
+                            basename
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/file.html">
+                            file
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/fileexists.html">
+                            fileexists
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/fileset.html">
+                            fileset
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/filebase64.html">
+                            filebase64
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/templatefile.html">
+                            templatefile
+                          </a>
+                          </li>
+                        </ul>
+                        </li>
+                        <li class="has-subnav">
+                        <a href="#">
+                          Date and Time Functions
+                        </a>
+                        <ul class="nav nav-hidden">
+                          <li>
+                          <a href="/docs/language/functions/formatdate.html">
+                            formatdate
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/timeadd.html">
+                            timeadd
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/timestamp.html">
+                            timestamp
+                          </a>
+                          </li>
+                        </ul>
+                        </li>
+                        <li class="has-subnav">
+                        <a href="#">
+                          Hash and Crypto Functions
+                        </a>
+                        <ul class="nav nav-hidden">
+                          <li>
+                          <a href="/docs/language/functions/base64sha256.html">
+                            base64sha256
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/base64sha512.html">
+                            base64sha512
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/bcrypt.html">
+                            bcrypt
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/filebase64sha256.html">
+                            filebase64sha256
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/filebase64sha512.html">
+                            filebase64sha512
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/filemd5.html">
+                            filemd5
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/filesha1.html">
+                            filesha1
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/filesha256.html">
+                            filesha256
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/filesha512.html">
+                            filesha512
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/md5.html">
+                            md5
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/rsadecrypt.html">
+                            rsadecrypt
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/sha1.html">
+                            sha1
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/sha256.html">
+                            sha256
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/sha512.html">
+                            sha512
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/uuid.html">
+                            uuid
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/uuidv5.html">
+                            uuidv5
+                          </a>
+                          </li>
+                        </ul>
+                        </li>
+                        <li class="has-subnav">
+                        <a href="#">
+                          IP Network Functions
+                        </a>
+                        <ul class="nav nav-hidden">
+                          <li>
+                          <a href="/docs/language/functions/cidrhost.html">
+                            cidrhost
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/cidrnetmask.html">
+                            cidrnetmask
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/cidrsubnet.html">
+                            cidrsubnet
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/cidrsubnets.html">
+                            cidrsubnets
+                          </a>
+                          </li>
+                        </ul>
+                        </li>
+                        <li class="has-subnav">
+                        <a href="#">
+                          Type Conversion Functions
+                        </a>
+                        <ul class="nav nav-hidden">
+                          <li>
+                          <a href="/docs/language/functions/can.html">
+                            can
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/defaults.html">
+                            defaults
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/tobool.html">
+                            tobool
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/tolist.html">
+                            tolist
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/tomap.html">
+                            tomap
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/tonumber.html">
+                            tonumber
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/toset.html">
+                            toset
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/tostring.html">
+                            tostring
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/functions/try.html">
+                            try
+                          </a>
+                          </li>
+                        </ul>
+                        </li>
+                      </ul>
+                      </li>
+                      <!-- function reference -->
+                      <li class="has-subnav">
+                      <a href="#">
+                        Terraform Settings
+                      </a>
+                      <ul class="nav nav-hidden">
+                        <li>
+                        <a href="/docs/language/settings/index.html">
+                          Overview
+                        </a>
+                        </li>
+                        <li class="has-subnav">
+                        <a href="#">
+                          Backends
+                        </a>
+                        <ul class="nav nav-hidden">
+                          <li>
+                          <a href="/docs/language/settings/backends/index.html">
+                            Overview
+                          </a>
+                          </li>
+                          <li>
+                          <a href="/docs/language/settings/backends/configuration.html">
+                            Backend Configuration
+                          </a>
+                          </li>
+                          <li class="has-subnav active">
+                          <a href="#">
+                            Enhanced Backends
+                          </a>
+                          <ul class="nav nav-auto-expand nav-hidden">
+                            <li>
+                            <a href="/docs/language/settings/backends/local.html">
+                              local
+                            </a>
+                            </li>
+                            <li>
+                            <a href="/docs/language/settings/backends/remote.html">
+                              remote
+                            </a>
+                            </li>
+                          </ul>
+                          </li>
+                          <li class="has-subnav active">
+                          <a href="#">
+                            Standard Backends
+                          </a>
+                          <ul class="nav nav-auto-expand nav-hidden">
+                            <li>
+                            <a href="/docs/language/settings/backends/artifactory.html">
+                              artifactory
+                            </a>
+                            </li>
+                            <li>
+                            <a href="/docs/language/settings/backends/azurerm.html">
+                              azurerm
+                            </a>
+                            </li>
+                            <li>
+                            <a href="/docs/language/settings/backends/consul.html">
+                              consul
+                            </a>
+                            </li>
+                            <li>
+                            <a href="/docs/language/settings/backends/cos.html">
+                              cos
+                            </a>
+                            </li>
+                            <li>
+                            <a href="/docs/language/settings/backends/etcd.html">
+                              etcd
+                            </a>
+                            </li>
+                            <li>
+                            <a href="/docs/language/settings/backends/etcdv3.html">
+                              etcdv3
+                            </a>
+                            </li>
+                            <li>
+                            <a href="/docs/language/settings/backends/gcs.html">
+                              gcs
+                            </a>
+                            </li>
+                            <li>
+                            <a href="/docs/language/settings/backends/http.html">
+                              http
+                            </a>
+                            </li>
+                            <li>
+                            <a href="/docs/language/settings/backends/kubernetes.html">
+                              kubernetes
+                            </a>
+                            </li>
+                            <li>
+                            <a href="/docs/language/settings/backends/manta.html">
+                              manta
+                            </a>
+                            </li>
+                            <li>
+                            <a href="/docs/language/settings/backends/oss.html">
+                              oss
+                            </a>
+                            </li>
+                            <li>
+                            <a href="/docs/language/settings/backends/pg.html">
+                              pg
+                            </a>
+                            </li>
+                            <li>
+                            <a href="/docs/language/settings/backends/s3.html">
+                              s3
+                            </a>
+                            </li>
+                            <li>
+                            <a href="/docs/language/settings/backends/swift.html">
+                              swift
+                            </a>
+                            </li>
+                          </ul>
+                          </li>
+                        </ul>
+                        </li>
+                        <!-- backends -->
+                      </ul>
+                      </li>
+                      <!-- settings -->
+                      <li class="has-subnav">
+                      <a href="#">
+                        State
+                      </a>
+                      <ul class="nav nav-hidden">
+                        <li>
+                        <a href="/docs/language/state/index.html">
+                          Overview
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/state/purpose.html">
+                          Purpose
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/state/remote-state-data.html">
+                          The
+                          <code>
+                          terraform_remote_state
+                          </code>
+                          Data Source
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/state/backends.html">
+                          Backends: State Storage &amp; Locking
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/state/import.html">
+                          Import Existing Resources
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/state/locking.html">
+                          Locking
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/state/workspaces.html">
+                          Workspaces
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/state/remote.html">
+                          Remote State
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/state/sensitive-data.html">
+                          Sensitive Data
+                        </a>
+                        </li>
+                      </ul>
+                      </li>
+                      <li class="has-subnav">
+                      <a href="#">
+                        Upgrade Guides
+                      </a>
+                      <ul class="nav nav-hidden">
+                        <li>
+                        <a href="/upgrade-guides/index.html">
+                          Overview
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/upgrade-guides/0-14.html">
+                          Upgrading to v0.14
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/upgrade-guides/0-13.html">
+                          Upgrading to v0.13
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/upgrade-guides/0-12.html">
+                          Upgrading to v0.12
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/upgrade-guides/0-11.html">
+                          Upgrading to v0.11
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/upgrade-guides/0-10.html">
+                          Upgrading to v0.10
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/upgrade-guides/0-9.html">
+                          Upgrading to v0.9
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/upgrade-guides/0-8.html">
+                          Upgrading to v0.8
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/upgrade-guides/0-7.html">
+                          Upgrading to v0.7
+                        </a>
+                        </li>
+                      </ul>
+                      </li>
+                      <li class="has-subnav">
+                      <a href="#">
+                        Historical docs: 0.11 and Older
+                      </a>
+                      <ul class="nav nav-hidden">
+                        <li>
+                        <a href="/docs/configuration-0-11/index.html">
+                          Overview
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/configuration-0-11/load.html">
+                          Load Order and Semantics
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/configuration-0-11/syntax.html">
+                          Configuration Syntax
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/configuration-0-11/interpolation.html">
+                          Interpolation Syntax
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/configuration-0-11/override.html">
+                          Overrides
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/configuration-0-11/resources.html">
+                          Resources
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/configuration-0-11/data-sources.html">
+                          Data Sources
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/configuration-0-11/providers.html">
+                          Providers
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/configuration-0-11/variables.html">
+                          Variables
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/configuration-0-11/outputs.html">
+                          Outputs
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/configuration-0-11/locals.html">
+                          Local Values
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/configuration-0-11/modules.html">
+                          Modules
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/configuration-0-11/terraform.html">
+                          Terraform
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/language/resources/provisioners/index.html">
+                          Provisioners
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/configuration-0-11/terraform-enterprise.html">
+                          Terraform Push (deprecated)
+                        </a>
+                        </li>
+                        <li>
+                        <a href="/docs/configuration-0-11/environment-variables.html">
+                          Environment Variables
+                        </a>
+                        </li>
+                      </ul>
+                      </li>
+                    </ul>
+                    <h4 id="otherdocs">
+                      Other Docs
+                    </h4>
+                    <ul class="nav docs-sidenav">
+                      <li>
+                      <a class="back" href="/intro/index.html">
+                        Intro to Terraform
+                      </a>
+                      </li>
+                      <li>
+                      <a class="back" href="/docs/cli/index.html">
+                        Terraform CLI
+                      </a>
+                      </li>
+                      <li>
+                      <a class="back" href="/docs/cloud/index.html">
+                        Terraform Cloud
+                      </a>
+                      </li>
+                      <li>
+                      <a class="back" href="/docs/enterprise/index.html">
+                        Terraform Enterprise
+                      </a>
+                      </li>
+                      <li>
+                      <a class="back" href="/docs/providers/index.html">
+                        Provider Documentation
+                      </a>
+                      </li>
+                      <li>
+                      <a class="back" href="/docs/glossary.html">
+                        Terraform Glossary
+                      </a>
+                      </li>
+                      <li>
+                      <a class="back" href="/docs/registry/index.html">
+                        Publishing Providers and Modules
+                      </a>
+                      </li>
+                      <li>
+                      <a class="back" href="/docs/extend/index.html">
+                        Extending Terraform
+                      </a>
+                      </li>
+                    </ul>
+                    </div>
+    <div class="col-sm-8 col-md-9 col-xs-12" id="inner" role="main">
+     <div id="inner-header-grid">
+      <div id="external-docs-link">
+      </div>
+      <h1 id="terraform-language-documentation">
+       <a class="anchor" href="#terraform-language-documentation" name="terraform-language-documentation">
+        »
+       </a>
+       Terraform Language Documentation
+      </h1>
+     </div>
+     <p>
+      This is the documentation for Terraform's configuration language. It is relevant
+to users of
+      <a href="/docs/cli/index.html">
+       Terraform CLI
+      </a>
+      ,
+      <a href="/docs/cloud/index.html">
+       Terraform Cloud
+      </a>
+      , and
+      <a href="/docs/enterprise/index.html">
+       Terraform Enterprise
+      </a>
+      .
+     </p>
+     <blockquote>
+      <p>
+       <strong>
+        Hands-on:
+       </strong>
+       Try the
+       <a href="https://learn.hashicorp.com/collections/terraform/aws-get-started?utm_source=WEBSITE&amp;utm_medium=WEB_IO&amp;utm_offer=ARTICLE_PAGE&amp;utm_content=DOCS">
+        Terraform: Get Started
+       </a>
+       collection on HashiCorp Learn.
+      </p>
+     </blockquote>
+     <p>
+      <em>
+       The Terraform language is Terraform's primary user interface.
+      </em>
+      In every edition
+of Terraform, a configuration written in the Terraform language is always at the
+heart of the workflow.
+     </p>
+     <h2 id="about-the-terraform-language">
+      <a class="anchor" href="#about-the-terraform-language" name="about-the-terraform-language">
+       »
+      </a>
+      About the Terraform Language
+     </h2>
+     <p>
+      The main purpose of the Terraform language is declaring
+      <a href="/docs/language/resources/index.html">
+       resources
+      </a>
+      , which represent infrastructure objects. All other
+language features exist only to make the definition of resources more flexible
+and convenient.
+     </p>
+     <p>
+      A
+      <em>
+       Terraform configuration
+      </em>
+      is a complete document in the Terraform language
+that tells Terraform how to manage a given collection of infrastructure. A
+configuration can consist of multiple files and directories.
+     </p>
+     <p>
+      The syntax of the Terraform language consists of only a few basic elements:
+     </p>
+     <div class="highlight">
+      <pre class="highlight hcl"><code><span class="n">resource</span> <span class="s2">"aws_vpc"</span> <span class="s2">"main"</span> <span class="p">{</span>
+  <span class="n">cidr_block</span> <span class="o">=</span> <span class="n">var</span><span class="p">.</span><span class="nf">base_cidr_block</span>
+<span class="p">}</span>
+
+<span class="o">&lt;</span><span class="no">BLOCK</span> <span class="no">TYPE</span><span class="o">&gt;</span> <span class="s2">"&lt;BLOCK LABEL&gt;"</span> <span class="s2">"&lt;BLOCK LABEL&gt;"</span> <span class="p">{</span>
+  <span class="c1"># Block body</span>
+  <span class="o">&lt;</span><span class="no">IDENTIFIER</span><span class="o">&gt;</span> <span class="o">=</span> <span class="o">&lt;</span><span class="no">EXPRESSION</span><span class="o">&gt;</span> <span class="c1"># Argument</span>
+<span class="p">}</span>
+</code></pre>
+     </div>
+     <ul>
+      <li>
+       <em>
+        Blocks
+       </em>
+       are containers for other content and usually represent the
+configuration of some kind of object, like a resource. Blocks have a
+       <em>
+        block type,
+       </em>
+       can have zero or more
+       <em>
+        labels,
+       </em>
+       and have a
+       <em>
+        body
+       </em>
+       that contains
+any number of arguments and nested blocks. Most of Terraform's features are
+controlled by top-level blocks in a configuration file.
+      </li>
+      <li>
+       <em>
+        Arguments
+       </em>
+       assign a value to a name. They appear within blocks.
+      </li>
+      <li>
+       <em>
+        Expressions
+       </em>
+       represent a value, either literally or by referencing and
+combining other values. They appear as values for arguments, or within other
+expressions.
+      </li>
+     </ul>
+     <p>
+      The Terraform language is declarative, describing an intended goal rather than
+the steps to reach that goal. The ordering of blocks and the files they are
+organized into are generally not significant; Terraform only considers implicit
+and explicit relationships between resources when determining an order of
+operations.
+     </p>
+     <h3 id="example">
+      <a class="anchor" href="#example" name="example">
+       »
+      </a>
+      Example
+     </h3>
+     <p>
+      The following example describes a simple network topology for Amazon Web
+Services, just to give a sense of the overall structure and syntax of the
+Terraform language. Similar configurations can be created for other virtual
+network services, using resource types defined by other providers, and a
+practical network configuration will often contain additional elements not
+shown here.
+     </p>
+     <div class="highlight">
+      <pre class="highlight hcl"><code><span class="n">terraform</span> <span class="p">{</span>
+  <span class="n">required_providers</span> <span class="p">{</span>
+    <span class="n">aws</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">source</span>  <span class="o">=</span> <span class="s2">"hashicorp/aws"</span>
+      <span class="n">version</span> <span class="o">=</span> <span class="s2">"~&gt; 1.0.4"</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">variable</span> <span class="s2">"aws_region"</span> <span class="p">{}</span>
+
+<span class="n">variable</span> <span class="s2">"base_cidr_block"</span> <span class="p">{</span>
+  <span class="n">description</span> <span class="o">=</span> <span class="s2">"A /16 CIDR range definition, such as 10.1.0.0/16, that the VPC will use"</span>
+  <span class="n">default</span> <span class="o">=</span> <span class="s2">"10.1.0.0/16"</span>
+<span class="p">}</span>
+
+<span class="n">variable</span> <span class="s2">"availability_zones"</span> <span class="p">{</span>
+  <span class="n">description</span> <span class="o">=</span> <span class="s2">"A list of availability zones in which to create subnets"</span>
+  <span class="n">type</span> <span class="o">=</span> <span class="n">list</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">provider</span> <span class="s2">"aws"</span> <span class="p">{</span>
+  <span class="n">region</span> <span class="o">=</span> <span class="n">var</span><span class="p">.</span><span class="nf">aws_region</span>
+<span class="p">}</span>
+
+<span class="n">resource</span> <span class="s2">"aws_vpc"</span> <span class="s2">"main"</span> <span class="p">{</span>
+  <span class="c1"># Referencing the base_cidr_block variable allows the network address</span>
+  <span class="c1"># to be changed without modifying the configuration.</span>
+  <span class="n">cidr_block</span> <span class="o">=</span> <span class="n">var</span><span class="p">.</span><span class="nf">base_cidr_block</span>
+<span class="p">}</span>
+
+<span class="n">resource</span> <span class="s2">"aws_subnet"</span> <span class="s2">"az"</span> <span class="p">{</span>
+  <span class="c1"># Create one subnet for each given availability zone.</span>
+  <span class="n">count</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">var</span><span class="p">.</span><span class="nf">availability_zones</span><span class="p">)</span>
+
+  <span class="c1"># For each subnet, use one of the specified availability zones.</span>
+  <span class="n">availability_zone</span> <span class="o">=</span> <span class="n">var</span><span class="p">.</span><span class="nf">availability_zones</span><span class="p">[</span><span class="n">count</span><span class="p">.</span><span class="nf">index</span><span class="p">]</span>
+
+  <span class="c1"># By referencing the aws_vpc.main object, Terraform knows that the subnet</span>
+  <span class="c1"># must be created only after the VPC is created.</span>
+  <span class="n">vpc_id</span> <span class="o">=</span> <span class="n">aws_vpc</span><span class="p">.</span><span class="nf">main</span><span class="p">.</span><span class="nf">id</span>
+
+  <span class="c1"># Built-in functions and operators can be used for simple transformations of</span>
+  <span class="c1"># values, such as computing a subnet address. Here we create a /20 prefix for</span>
+  <span class="c1"># each subnet, using consecutive addresses for each availability zone,</span>
+  <span class="c1"># such as 10.1.16.0/20 .</span>
+  <span class="n">cidr_block</span> <span class="o">=</span> <span class="n">cidrsubnet</span><span class="p">(</span><span class="n">aws_vpc</span><span class="p">.</span><span class="nf">main</span><span class="p">.</span><span class="nf">cidr_block</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">count</span><span class="p">.</span><span class="nf">index</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+     </div>
+    </div>
+   </div>
+  </div>
+  
+  <script type="application/ld+json">
+   {
+        "@context": "http://schema.org",
+        "@type": "Product",
+        "name": "Terraform",
+        "alternateName": "Terraform by HashiCorp",
+        "manufacturer": "HashiCorp",
+        "url": "https://www.terraform.io",
+        "logo": "https://www.terraform.io/assets/images/logo-hashicorp-3f10732f.svg",
+        "sameAs": [
+          "https://github.com/hashicorp/terraform"
+        ]
+      }
+  </script>
+  <div id="om-vgyzgoyxfu6llgxk7jnv-holder">
+  </div>
+  <div id="om-ptttj6c4neq8mwziegtq-holder">
+  </div>
+  <script id="" src="//cdn.bizible.com/scripts/bizible.js" type="text/javascript">
+  </script>
+  <img alt="" src="https://cdn.bizible.com/m/ipv?_biz_r=&amp;_biz_h=-417244810&amp;_biz_u=207ef29f64184b63f724671248569bf9&amp;_biz_s=12f699&amp;_biz_l=https%3A%2F%2Fwww.terraform.io%2Fdocs%2Flanguage%2Findex.html&amp;_biz_t=1617407924733&amp;_biz_i=Overview%20-%20Configuration%20Language%20-%20Terraform%20by%20HashiCorp&amp;_biz_n=0&amp;rnd=567444&amp;cdn_o=a&amp;_biz_z=1617407924735" style="display: none;"/>
+  <img alt="" src="https://cdn.bizibly.com/u?_biz_u=207ef29f64184b63f724671248569bf9&amp;_biz_s=12f699&amp;_biz_l=https%3A%2F%2Fwww.terraform.io%2Fdocs%2Flanguage%2Findex.html&amp;_biz_t=1617407924738&amp;_biz_i=Overview%20-%20Configuration%20Language%20-%20Terraform%20by%20HashiCorp&amp;rnd=559404&amp;cdn_o=a&amp;_biz_z=1617407924738" style="display: none;"/>
+ </body>
+</html>
